@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "长江雨课堂 AI 学习助手",
+  "short_name": "雨课堂 AI",
+  "version": "0.5.2",
+  "description": "面向长江雨课堂的 AI 学习助手。当前为第五阶段：题目识别与 DeepSeek 分析。",
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+  "side_panel": {
+    "default_path": "sidepanel/index.html"
+  },
+  "action": {
+    "default_title": "打开长江雨课堂 AI 学习助手"
+  },
+  "permissions": [
+    "storage",
+    "sidePanel"
+  ],
+  "host_permissions": [
+    "https://changjiang.yuketang.cn/*",
+    "https://fe-static-yuketang.yuketang.cn/*"
+  ],
+  "optional_host_permissions": [
+    "https://*/*",
+    "http://localhost/*",
+    "http://127.0.0.1/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://changjiang.yuketang.cn/*"
+      ],
+      "js": [
+        "content/observer.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

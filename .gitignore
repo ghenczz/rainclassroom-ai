@@ -1,0 +1,19 @@
+node_modules/
+dist/
+release/
+*.zip
+*.log
+.tmp-*
+
+# 本地环境与密钥
+.env
+.env.*
+!.env.example
+*.local
+
+# 编辑器与系统文件
+.vscode/
+.idea/
+*.tsbuildinfo
+.DS_Store
+Thumbs.db

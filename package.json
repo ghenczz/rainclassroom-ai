@@ -1,0 +1,46 @@
+{
+  "name": "rainclassroom-ai",
+  "version": "0.5.2",
+  "private": true,
+  "description": "长江雨课堂 AI 学习助手（Manifest V3 浏览器扩展）",
+  "type": "module",
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "scripts": {
+    "clean": "node scripts/clean.mjs",
+    "typecheck": "tsc --noEmit",
+    "build": "node scripts/build.mjs",
+    "test": "npm run typecheck && npm run build && node --test tests/manifest.test.mjs tests/build.test.mjs tests/video.test.mjs tests/deepseek.test.mjs tests/font-decoder.test.mjs tests/question.test.mjs",
+    "check": "npm test",
+    "smoke:edge": "npm run build && node scripts/smoke-edge.mjs",
+    "package": "npm run build && powershell -NoProfile -ExecutionPolicy Bypass -File scripts/package-release.ps1"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.3.7",
+    "@types/opentype.js": "^1.3.10",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "opentype.js": "^2.0.0"
+  },
+  "license": "MIT",
+  "author": "RainClassroom AI contributors",
+  "keywords": [
+    "rain-classroom",
+    "yuketang",
+    "browser-extension",
+    "manifest-v3",
+    "edge-extension",
+    "deepseek"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ghenczz/rainclassroom-ai.git"
+  },
+  "homepage": "https://github.com/ghenczz/rainclassroom-ai#readme",
+  "bugs": {
+    "url": "https://github.com/ghenczz/rainclassroom-ai/issues"
+  }
+}
